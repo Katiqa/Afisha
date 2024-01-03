@@ -123,5 +123,19 @@ public class AfishaManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void LimitLowFilms() {
+        AfishaManager manager = new AfishaManager(6);
+
+        manager.addFilms(film1);
+        manager.addFilms(film2);
+        manager.addFilms(film3);
+        manager.addFilms(film4);
+
+        AfishaFilms[] expected = {film4, film3, film2, film1};
+        AfishaFilms[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
 }
